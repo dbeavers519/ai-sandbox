@@ -7,13 +7,13 @@
 
 namespace Utilities {
 	namespace Structures {
-		template<class T>
+		template<typename T>
 		class MinHeapObj {
 			private:
 			public:
 		};
 
-		template<class T>
+		template<typename T>
 		class MinHeapArray {
 			private:
 				T* heap;
@@ -36,7 +36,7 @@ namespace Utilities {
 				void displayHeap();
 		};
 
-		template<class T>
+		template<typename T>
 		MinHeapArray<T>::MinHeapArray(int length) {
 			// Waste 0
 			heap = new T[length + 1];
@@ -46,16 +46,16 @@ namespace Utilities {
 			levelPower = 0;
 		}
 
-		template<class T>
+		template<typename T>
 		MinHeapArray<T>::~MinHeapArray() {
 		}
 
-		template<class T>
+		template<typename T>
 		int MinHeapArray<T>::count() {
 			return numNodes;
 		}
 
-		template<class T>
+		template<typename T>
 		void MinHeapArray<T>::resize() {
 			int newLength = heapLength * 2;
 			T* newHeap = new T[newLength];
@@ -64,7 +64,7 @@ namespace Utilities {
 			heap = newHeap;
 		}
 
-		template<class T>
+		template<typename T>
 		int MinHeapArray<T>::percolateUp(int hole, T item) {
 			while (hole > 1 && item < heap[hole / 2])
 			{
@@ -74,7 +74,7 @@ namespace Utilities {
 			return hole;
 		}
 
-		template<class T>
+		template<typename T>
 		int MinHeapArray<T>::percolateDown(int hole, T item) {
 			int left = 0;
 			int right = 0;
@@ -105,7 +105,7 @@ namespace Utilities {
 			return hole;
 		}
 
-		template<class T>
+		template<typename T>
 		void MinHeapArray<T>::addItem(T item) {
 			int hole;
 			if (numNodes == heapLength - 1)
@@ -124,12 +124,12 @@ namespace Utilities {
 			}
 		}
 
-		template<class T>
+		template<typename T>
 		T MinHeapArray<T>::getRoot() {
 			return heap[1];
 		}
 
-		template<class T>
+		template<typename T>
 		T MinHeapArray<T>::findItem(T item) {
 			for (int i = 1; i <= numNodes; i++)
 			{
@@ -141,7 +141,7 @@ namespace Utilities {
 			return NULL;
 		}
 
-		template<class T>
+		template<typename T>
 		T MinHeapArray<T>::deleteMin() {
 			if (numNodes == 0)
 			{
@@ -156,7 +156,7 @@ namespace Utilities {
 			return result;
 		}
 
-		template<class T>
+		template<typename T>
 		void MinHeapArray<T>::displayHeap() {
 			if (numNodes < 1)
 			{
